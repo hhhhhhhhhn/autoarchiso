@@ -1,6 +1,6 @@
 # autoarch ISO
 
-this repository contains the tools necessary to create an autoarch ISO.
+this repository contains the tools necessary to create an [autoarch](https://github.com/hhhhhhhhhn/autoarch) ISO.
 to compile it yourself, install the archiso utility and run `make`
 
 ## usage
