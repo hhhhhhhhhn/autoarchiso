@@ -1,0 +1,16 @@
+while ! ping archlinux.org -c 1 >/dev/null 2>&1; do
+	dialog --stdout --yes-label "Use WiFi" --no-label "Try Again" \
+		--yesno "Internet not connected" 0 0 && wifi-menu
+done
+
+while true; do
+	VER=`dialog --stdout --inputbox "Which version to install?" 0 0 "base"`
+	echo "$VER" | grep "http" > /dev/null && REPO="$VER" \
+		|| REPO="https://github.com/$VER"
+	[ "$VER" = "base" ] && REPO="https://github.com/hhhhhhhhhn/autoarch"
+
+	git clone "$REPO" autoarch/ && break
+done
+
+cd autoarch
+./install
